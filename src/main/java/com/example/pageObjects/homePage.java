@@ -5,21 +5,26 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class homePage {
+import com.example.abstractComponants.abstractComponants;
+
+public class homePage extends abstractComponants{
     public WebDriver driver;
     	public homePage(WebDriver driver) {
+            super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
     
-    @FindBy(xpath="//a[contains(text(),'Electronics')]")
-    public WebElement electronics;
+    
 
+    @FindBy(xpath="//div[@id='nav-xshop']//a[text()='Mobiles']")
+    public WebElement mobile;
 
-
-
-    public String getElectronicsText() {
-       return electronics.getText();
+    public void clickOnMobile(){
+        clickOnElement(mobile);
     }
+
+
+  
 
 }
